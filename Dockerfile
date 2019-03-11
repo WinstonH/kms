@@ -2,7 +2,7 @@ FROM alpine:latest
 ENV PORT 1688
 RUN set -ex \
 && apk upgrade --no-cache \
-&& apk --update --no-cache add curl
+&& apk --update --no-cache add curl \
 && VERSION=$(curl -s https://api.github.com/repos/Wind4/vlmcsd/releases/latest | grep tag_name | awk  -F '"' '{print $4}') \
 && mkdir kms \
 && wget https://github.com/Wind4/vlmcsd/releases/download/$VERSION/binaries.tar.gz \
